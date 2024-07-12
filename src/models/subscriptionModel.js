@@ -1,17 +1,15 @@
-const { timeStamp } = require('console');
 const mongoose = require('mongoose');
-const { type } = require('os');
 
 const subscriptionSchema = new mongoose.Schema({
-    type: {
-        type: String,
-        enum: ['weekly', 'monthly', 'yearly'],
+    pricingPlanId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'PricingPlan',
         required: true
     },
 
-    accountId: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Account',
+        ref: 'User',
         required: true
     },
 
